@@ -1,0 +1,76 @@
+#meu-botao {
+  background-color: #321EB1;
+
+}
+#meu-botao2 {
+  background-color: #ffff;
+
+}
+
+#containerCadastro {
+
+  background-color: #656AA6;
+  width: auto;
+  height: auto;
+
+}
+
+#botoes {
+  background-color: #454545;
+  align-items: center;
+  height: 60px;
+  width: 250px;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+#img botoes {
+  width: 10px;
+}
+
+#botoes2 {
+  background-color: #321EB1;
+  align-items: center;
+  height: 60px;
+  width: 250px;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+#hr {
+  height: 60px;
+  width: 250px;
+}
+
+#linhaca {
+  border-bottom-style: solid;
+  border-width: 10px;
+  border-color: #2B1998;
+}
+
+#bordaform {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #2B1998;
+  display: flex;
+  flex-direction: column;
+}
+
+#bloco1 {
+  flex-direction: column;
+}
+
+#nome {
+  width: 78%;
+}
+
+#sobrenome {
+  width: 78%;
+}
+
+#Telefone {
+  width: 78%;
+}
+
+#bloco2 {
+  flex-direction:column-reverse;
+}
