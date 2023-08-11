@@ -8,7 +8,8 @@
             <p class="h4 text-center" style="color: #2B1998; margin-top: 20px; font-size: 60px"><b>Cadastre-se </b></p>
             <form method="POST" action="{{ route('register') }}" id="bordaform">
                 @csrf
-                    <div class="col-md-6" id="bloco1">   
+                <form class="row g-5">
+                    <div class="col-sm-6" id="bloco1">   
                         <div style="margin-top: 30px">
                             <label for="name" class="col-md-4 col-form-label text-md-end">
                             </label>
@@ -41,7 +42,7 @@
                                 @enderror
                         </div>
                     </div>
-                    <div class="col-md-6" id="bloco2">   
+                    <div class="col-sm-6" id="bloco2">   
                         <div style="margin-top: 30px">
                             <label for="name" class="col-md-4 col-form-label text-md-end">
                                 <i class="bi bi-person-fill">
@@ -75,9 +76,8 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div>
+                            </div>
+                            <div>
                             <label for="password" class="col-md-4 col-form-label text-md-end">
                                 <i>
                                     <img src="{{asset('storage/imagens/CPF.png')}}" />
@@ -112,5 +112,6 @@
             </div>
         </div>        
     </div>
+            </form>
     
 @endsection
