@@ -13,7 +13,7 @@
 </header>
 <body>
     
-    <main role="main" class="py-4">
+    <main role="main">
         @hasSection('content')
             @yield('content')
         @endif

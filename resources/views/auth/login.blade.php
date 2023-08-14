@@ -16,10 +16,12 @@
                     <div class="row mb-3" style="margin-top: 50px">
                             <label for="email" class="col-md-4 col-form-label text-md-end">         
                             </label>
-
-                            <div class="col-md-4">
+                            
+                      <div class="col-md-4" id="LinhaE">
                                 <label for="nome" style="color: black; font-size: 18px"class="">E-mail:</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required placeholder="Email">
+                    
+                               
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

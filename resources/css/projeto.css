@@ -74,3 +74,38 @@
 #bloco2 {
   flex-direction:column-reverse;
 }
+
+#linhaE {
+  display: flex;
+  margin-right: 10px;
+}
+
+.email{
+  margin-right: 10px;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.input-icon {
+  position: absolute;
+  top: 70%;
+  left: 8px; /* Ajuste conforme necessário */
+  transform: translateY(-50%);
+  width: 20px; /* Ajuste conforme necessário */
+  height: auto;
+}
+
+.input-field {
+  padding-right: 30px; /* Espaço para a largura da imagem */
+  margin-left: 35px;
+}
+
+#Botaocad {
+  background-color: #321EB1;
+  height: 50px;
+  width: 120px;
+  font-size: 20px;
+}
