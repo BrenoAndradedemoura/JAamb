@@ -13,8 +13,8 @@ class ControladorAnimal extends Controller
      */
     public function index()
     {
-        $posts = Animal::all();
-        return view ('cadastro', compact('posts'));
+        $animal = Animal::all();
+        return view ('sistema.novoCadastro', compact('cadastro'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ControladorAnimal extends Controller
      */
     public function create()
     {
-        //
+        return view('sistema.novoCadastro');
     }
 
     /**
@@ -31,16 +31,16 @@ class ControladorAnimal extends Controller
     public function store(Request $request)
     {
         $path = $request -> file('arquivo')->store('imagens', 'public');
-        $post = new Animal () ;
-        $post ->  nome = $request -> input ('nome');
-        $post -> idade = $request -> input ('idade');
-        $post -> especie = $request -> input ('especie');
-        $post -> raca = $request -> input ('raca');
-        $post -> sexo = $request -> input ('sexo');
-        $post -> porte = $request -> input ('porte');
-        $post -> sobre = $request -> input ('sobre');
-        $post -> arquivo = $path ;
-        $post -> save () ;
+        $data = new Animal () ;
+        $data ->  nome = $request -> input ('nome');
+        $data -> idade = $request -> input ('idade');
+        $data -> especie = $request -> input ('especie');
+        $data -> raca = $request -> input ('raca');
+        $data -> sexo = $request -> input ('sexo');
+        $data -> porte = $request -> input ('porte');
+        $data -> sobre = $request -> input ('sobre');
+        $data -> arquivo = $path ;
+        $data -> save () ;
         return redirect('/');
     }
 
@@ -57,7 +57,12 @@ class ControladorAnimal extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Animal::find($id);
+        if(isset($data)){
+            return view('site.editaCadastro', compact('data'));
+        }
+        return redirect('/cadastros/lista')->with('danger', 'Erro ao editar o cadastro');
+        
     }
 
     /**
@@ -65,7 +70,26 @@ class ControladorAnimal extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Animal::find($id);
+        if(isset($data)){
+            $data ->  nome = $request -> input ('nome');
+            $data -> idade = $request -> input ('idade');
+            $data -> especie = $request -> input ('especie');
+            $data -> raca = $request -> input ('raca');
+            $data -> sexo = $request -> input ('sexo');
+            $data -> porte = $request -> input ('porte');
+            $data -> sobre = $request -> input ('sobre');
+            $file = $request->file('arquivo');
+            if(isset($file)){
+                $filename = 'images/'.date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('storage/images'), $filename);
+                $data->arquivo = $filename;
+            }
+            $data->save();
+        }else{
+            return redirect('/cadastros/lista')->with('danger', 'Erro ao editar o cadastro');
+        }
+        return redirect('/cadastros/lista')->with('success', 'Noticia editada com sucesso');
     }
 
     /**
@@ -73,11 +97,11 @@ class ControladorAnimal extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Animal::find($id);
-        if(isset($post)){
-            $arquivo = $post -> arquivo;
-            Storage::disk ('public')->delete($arquivo) ;
-            $post->delete () ;
+        $data = Animal::find($id);
+        if(isset($data)){
+            $arquivo = $data -> arquivo;
+            Storage::disk ('public')->delete($arquivo);
+            $data->delete();
         }
     return redirect('/');
     }
