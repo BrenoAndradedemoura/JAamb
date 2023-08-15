@@ -18,45 +18,61 @@
                             </label>
                             
                       <div class="col-md-4" id="LinhaE">
-                                <label for="nome" style="color: black; font-size: 18px"class="">E-mail:</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required placeholder="Email">
-                    
-                               
+                                <table id="tabela">
+                                    <tbody>
+                                    <tr>
+                                        <td colspan="2">
+                                            <label for="nome" style="color: black; font-size: 18px"class="">E-mail:</label>
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                            <td><img src="{{asset('storage/imagens/email 2.svg')}}" /> </td>
+                                            <td><input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required placeholder="Email"></td>
+                                        </tr>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                         </div>
-                    <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">
-                                <i>
-                                    <img src="{{asset('storage/imagens/email 2.svg')}}" />
-                                </i>
-                            </label>
+                    </div>
+                            <div class="row mb-3">
+                                    <label for="password" class="col-md-4 col-form-label text-md-end">
+                                    </label>
 
-                            <div class="col-md-4">
-                                <label for="nome" style="color: black; font-size: 18px"class="">Senha:</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Senha">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                                    <div class="col-md-4">
+                                        <tr>
+                                            <td colspan="2">
+                                                <label for="nome" style="color: black; font-size: 18px"class="">Senha:</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        <td><img src="{{asset('storage/imagens/chaves.png')}}" /> </td>
+                                        <td><input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Senha">
+                                        </tr>
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
                             <div class="col-md-6 offset-md-4">
                                 <div>
+                                <tr><td colspan="2">
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}" style="color: black; font-size: 20px; margin-top: 10px">
                                             {{ __('Esqueceu sua senha?') }}
                                         </a>
                                     @endif
+                                    </td></tr>
                                 </div>
                             </div>
                         </div>
-
+                        </tbody>
+                    </table>
+                    </div>
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
